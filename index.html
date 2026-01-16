@@ -106,44 +106,73 @@
         <h1>Mack Tang - Projects Gallery</h1>
         
         <div class="video-container">
-            <video id="firstVideo" class="video" controls muted>
+            <!-- <video id="firstVideo" class="video" controls muted> -->
+            <video id="firstVideo" class="video" controls muted playsinline preload="metadata">
             <!-- <video class="video" controls autoplay muted> -->
             <!-- <video class="video" controls muted> -->
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/pick_and_drop_with_image_overlay_top_left.mp4" type="video/mp4">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/arm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2 class="video-title">Custom 3DOF Robotic Arm with Custom FOC PCB</h2>
+            <p class="description">0:00 Hardware<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2:30 Simulation</p>
+            <hr> <!-- Horizontal bar -->
+            <div class="empty-space"></div> <!-- Empty space -->
+        </div>
+
+        <div class="video-container">
+            <video class="video" controls playsinline preload="metadata">
+            <!-- <video class="video" controls autoplay muted> -->
+            <!-- <video class="video" controls muted> -->
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/2dof-2dof-bilateral-haptic.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2 class="video-title">2DOF-2DOF Bilateral Teleoperation with Haptic Feedback</h2>
+            <p class="description"></p>
+            <hr> <!-- Horizontal bar -->
+            <div class="empty-space"></div> <!-- Empty space -->
+        </div>
+        
+        <div class="video-container">
+            <video class="video" controls muted playsinline preload="metadata">
+            <!-- <video class="video" controls autoplay muted> -->
+            <!-- <video class="video" controls muted> -->
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/pick_and_drop_with_image_overlay_top_left.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Box Pickup and Dropoff using MPC + WBC (Implemented in C++)</h2>
-            <p class="description">Box pickup and dropoff controller. All code written in C++. For the 1kg box, the WBC + MPC controller was able to reject disturbances without any modifications. However the 5kg box, the robot could not even stand or pick up the box without falling. Hence the WBC + MPC formulation was modified to expect a disturbance force at the hands. A "sliding the box off the table" strategy was employed for the heavier box, as well as a "hugging the box against body" type of strategy. In addition, the WBC + MPC was modified to expect a disturbance force, which allowed it to walk around. Staggering the feet (one foot slightly forward, one foot back) was done to help pull the box off the table, but not needed after the WBC + MPC disturbance force modification. These changes helped with carrying the 5kg box.
+            <p class="description">Box pickup and dropoff controller. All code written in C++. For the 1kg box, the WBC + MPC controller was able to reject disturbances without any modifications. However the 5kg box, the robot could not stand or pick up the box without falling. Hence the WBC + MPC formulation was modified to expect a disturbance force at the hands. A "sliding the box off the table" strategy was employed for the heavier box, as well as a "hugging the box against body" type of strategy. In addition, the WBC + MPC was modified to expect a disturbance force, which allowed it to walk around. Staggering the feet (one foot slightly forward, one foot back) was done to help pull the box off the table, but not needed after the WBC + MPC disturbance force modification. These changes helped with carrying the 5kg box.
             The box can accept light disturbances, for both heavy or light box. In addition to moving the box around, the robot can control the box roll and yaw position.
             A weight change from 5kg to 22kg while standing in place is demonstrated, the controller is given information about the new box mass at the same instant the mass is changed.
-            A basic UML diagram showing how the C++ classes are organized is included at the end of the video.
+            A basic UML diagram showing the class organization is at the end of the video.
             </p>
             <hr> <!-- Horizontal bar -->
             <div class="empty-space"></div> <!-- Empty space -->
         </div>
         
         <div class="video-container">
-            <video id="firstVideo" class="video" controls muted>
+            <!-- <video id="firstVideo" class="video" controls muted> -->
+            <video class="video" controls muted playsinline preload="metadata">
             <!-- <video class="video" controls autoplay muted> -->
             <!-- <video class="video" controls muted> -->
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/output1.mp4" type="video/mp4">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/output1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Biped Humanoid Walking and Running using MPC + WBC (Implemented in C++)</h2>
             <p class="description">Walking, curved paths, sidestepping, spin move, orientation control, disturbance rejection, moving arms, and running. Method for control is Nonconvex MPC and WBC. Converted URDF to XML format (for Tello robot, hardware designed primarily by UIUC), and set up simulation environment from scratch using Mujoco and C++.
                 Defined my own Object Oriented architecture/organization for all classes. Determined how to use Mujoco to pull the mass matrix, coriolis/centrifugal terms, floating base/joint state, and any needed Jacobians. 
                 Implemented classes to translate the MPC optimization problem from math into Casadi and C++. Existing classes were leveraged for the WBC and the Bezier curve generation. Implemented COM reference trajectory generation using linear ramps for linear and angular velocities, and integrating to get positions, with fixed contact/gait schedules. Either the MPC or WBC can function decently completely independently of the other, but each has it's own drawbacks when used alone. 
-                A large part of this project was thoroughly understanding the math and theory behind both MPC and WBC formulations, in order to implement and troubleshoot to a bug-free controller. CMakeLists.txt files were created to facilitate compiling my own code alongside Mujoco, Casadi, Eigen, and existing WBC code.
-                A YAML file was created to reduce unecessary compiling, as well as to sequence all of the moves shown. 
-                A large focus of this project was writing easy to understand code, in terms of overall class organization, naming of classes and objects, and well commented code (for my own sake). 
-                Standing-in-place was first set up using pure MPC, then with pure WBC, followed by the swing controller, walking in place, walking forward, yaw control, and so on, with much troubleshooting occuring along the way.</p>
+                Much of this project involved understanding the math and theory behind both MPC and WBC formulations, in order to implement and troubleshoot to a bug-free controller. CMakeLists.txt files were created to facilitate compiling my own code alongside Mujoco, Casadi, Eigen, and existing WBC code.
+                A YAML file was created to reduce unecessary compiling and to sequence all of the moves shown. 
+                A focus of this project was writing easy to understand code, in terms of overall class organization, naming of classes and objects, and comments. 
+                Standing-in-place was first set up using pure MPC, then with pure WBC, followed by the swing controller, walking in place, walking forward, yaw control, and so on, with troubleshooting occuring along the way.</p>
             <hr> <!-- Horizontal bar -->
             <div class="empty-space"></div> <!-- Empty space -->
         </div>
 
         <div class="video-container">
-            <video class="video" controls>
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/output_highlights_compressed.mp4" type="video/mp4">
+            <video class="video" controls muted playsinline preload="metadata">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/output_highlights_compressed.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Quadruped Control using Convex MPC (Python)</h2>
@@ -181,8 +210,8 @@
 
         
         <div class="video-container">
-            <video class="video" controls>
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/traj_opt_staccatoe_2D_SRBM_closed_chain_5_swing.mp4" type="video/mp4">
+            <video class="video" controls muted playsinline preload="metadata">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/traj_opt_staccatoe_2D_SRBM_closed_chain_5_swing.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Kinodynamic Trajectory Optimization for Jumping (Closed-chain torque limits)</h2>
@@ -197,8 +226,8 @@
 
         
         <div class="video-container">
-            <video class="video" controls>
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/floating_base_and_biped_compressed.mp4" type="video/mp4">
+            <video class="video" controls muted playsinline preload="metadata">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/floating_base_and_biped_compressed.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Floating Base Position and Orientation Control using Task-Space Controller</h2>
@@ -210,16 +239,16 @@
                 <div class="empty-space"></div> <!-- Empty space -->
         </div>
         
-        <div class="video-container">
-            <video class="video" controls>
-                <source src="https://d2qh2ul4zmsrls.cloudfront.net/fast_pick.mp4" type="video/mp4">
+        <!-- <div class="video-container">
+            <video class="video" controls muted playsinline preload="metadata">
+                <source src="https://d2qh2ul4zmsrls.cloudfront.net/web_optimized/fast_pick.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h2 class="video-title">Agile Robotics for Industrial Automation Competition (C++, ROS, MoveIt, Gazebo)</h2>
             <p class="description">Semester-long course focused on kit building simulation competition (pick up objects from shelves and place in a tray). Worked on a team of 4 to code dual UR-10 arms on a 3-axis gantry. Tools: C++ MoveIt, Gazebo, ROS, Git, Doxygen. The video shows one aspect of the challenge, which was to pick up objects while avoiding a moving human. Inverse kinematics and trajectory planning used MoveIt.
-                <hr> <!-- Horizontal bar -->
-                <div class="empty-space"></div> <!-- Empty space -->
-        </div>
+                <hr>
+                <div class="empty-space"></div>
+        </div> -->
 
 
             
@@ -242,7 +271,7 @@
             </div>
             <h2 class="video-title">Furuta Pendulum</h2>
             <p class="description">Designed, built, programmed, and tested Furuta Pendulum. Coded full-state feedback loop with LQR gains. Hardware: BLDC, slipring, ODrive FOC BLDC controller, Teensy, absolute encoder. Simulation: Matlab.
-                Assigned frames using Denavit-Hartenberg, derived dynamics with Lagrangian, linearized nonlinear DEs, performed system identification, implemented LQR in sim/real-time on hardware (control loop 333 hz).
+                Assigned frames using Denavit-Hartenberg, derived dynamics with Lagrangian, linearized nonlinear DEs, performed system identification, implemented LQR in sim/real-time on hardware.
             </p>
             <hr> <!-- Horizontal bar -->
             <div class="empty-space"></div> <!-- Empty space -->
